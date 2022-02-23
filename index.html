@@ -6,6 +6,205 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animaciones número primitiva</title>
+
+    <style>
+
+
+     body{
+
+        animation: cambiacolor infinite;
+        animation-duration: 2S;
+        
+
+
+
+
+     }
+
+
+
+
+
+        header h2:hover{
+
+                animation: separa;
+                animation-duration: 2s;
+                animation-delay: 1s;
+
+
+
+        } 
+
+        footer {
+
+            width: 100vw;
+            height: 10vh;
+       
+          
+            
+
+        }
+
+
+        footer p {
+            animation: deIzquierdaDerecha infinite;
+            animation-duration: 5s;
+        }
+
+        footer p:hover {
+
+         
+            animation: cambiaColor;
+            animation-duration: 2s;
+        }
+
+
+        #fecha:hover {
+            animation: rotar;
+            animation-duration: 2s;
+        }
+
+
+
+        .nums{
+
+            animation:moverNumeros  infinite;
+            animation-duration: 0.5s;
+        }
+
+        .nums:hover{
+
+            margin: 0 auto;
+            animation: agrandar;
+            animation-duration: 2s;
+            animation-delay: 0.5s;
+        }
+
+
+        @keyframes agrandar{
+
+
+             from{
+                 font-size: normal;
+             }to{
+
+                font-size: 50rem;
+
+             }
+
+
+
+        }
+
+
+
+
+
+        @keyframes cambiacolor{
+
+              10%{
+                background-color: green;
+
+              }
+             
+             20%   {
+
+                background-color: yellow;
+              }
+
+              30%{
+
+                background-color: red;
+              }
+
+              40%{
+
+                background-color: blue;
+              }
+
+              50%{
+
+                background-color: orange;
+              }
+
+
+        }
+
+
+
+
+        @keyframes rotar {
+
+            from{transform: rotate(0deg);}to
+            {transform: rotate(360deg);}
+        
+        
+        
+
+
+
+        }
+
+
+
+    
+       
+    @keyframes separa {
+
+        from{letter-spacing: normal;}to{
+
+            letter-spacing: 1rem;
+
+        }
+        
+    }
+
+
+    @keyframes moverNumeros {
+
+         10%{
+
+            transform: translate(1px,1px);
+         }
+
+        20%{
+
+            transform: translate(2px,2px);
+        }
+
+        30%{
+
+            transform: translate(3px,3px);
+        }
+
+        40%{
+
+            trasform:translate(4px,4px);
+        }
+
+        
+    }
+
+    @keyframes deIzquierdaDerecha {
+
+  from{margin-left:0%}to{
+
+
+    margin-left: 100%;
+  }
+   
+ }
+
+
+
+
+
+
+   
+   
+    </style>
+
+
     <script>
         function sorteo() {
             const num = [];
