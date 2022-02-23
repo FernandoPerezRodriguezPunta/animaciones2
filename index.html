@@ -1,262 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animaciones número primitiva</title>
 
     <style>
-
-
-     body{
-
+      body {
         animation: cambiacolor infinite;
-        animation-duration: 2S;
-        
+        animation-duration: 2s;
+      }
 
+      header h2:hover {
+        animation: separa;
+        animation-duration: 2s;
+        animation-delay: 1s;
+      }
 
+      footer {
+        width: 100vw;
+        height: 10vh;
+      }
 
+      footer p {
+        animation: deIzquierdaDerecha infinite;
+        animation-duration: 5s;
+      }
 
-     }
+      footer p:hover {
+        animation: cambiaColor;
+        animation-duration: 2s;
+      }
 
+      #fecha:hover {
+        animation: rotar;
+        animation-duration: 2s;
+      }
 
+      .nums {
+        animation: moverNumeros infinite;
+        animation-duration: 0.5s;
+      }
 
+      .nums:hover {
+        margin: 0 auto;
+        animation: agrandar;
+        animation-duration: 2s;
+        animation-delay: 0.5s;
+      }
 
+      @keyframes agrandar {
+        from {
+          font-size: normal;
+        }
+        to {
+          font-size: 50rem;
+        }
+      }
 
-        header h2:hover{
-
-                animation: separa;
-                animation-duration: 2s;
-                animation-delay: 1s;
-
-
-
-        } 
-
-        footer {
-
-            width: 100vw;
-            height: 10vh;
-       
-          
-            
-
+      @keyframes cambiacolor {
+        10% {
+          background-color: green;
         }
 
-
-        footer p {
-            animation: deIzquierdaDerecha infinite;
-            animation-duration: 5s;
+        20% {
+          background-color: yellow;
         }
 
-        footer p:hover {
-
-         
-            animation: cambiaColor;
-            animation-duration: 2s;
+        30% {
+          background-color: red;
         }
 
-
-        #fecha:hover {
-            animation: rotar;
-            animation-duration: 2s;
+        40% {
+          background-color: blue;
         }
 
+        50% {
+          background-color: orange;
+        }
+      }
 
+      @keyframes rotar {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
 
-        .nums{
+      @keyframes separa {
+        from {
+          letter-spacing: normal;
+        }
+        to {
+          letter-spacing: 1rem;
+        }
+      }
 
-            animation:moverNumeros  infinite;
-            animation-duration: 0.5s;
+      @keyframes moverNumeros {
+        10% {
+          transform: translate(1px, 1px);
         }
 
-        .nums:hover{
-
-            margin: 0 auto;
-            animation: agrandar;
-            animation-duration: 2s;
-            animation-delay: 0.5s;
+        20% {
+          transform: translate(2px, 2px);
         }
 
-
-        @keyframes agrandar{
-
-
-             from{
-                 font-size: normal;
-             }to{
-
-                font-size: 50rem;
-
-             }
-
-
-
+        30% {
+          transform: translate(3px, 3px);
         }
 
-
-
-
-
-        @keyframes cambiacolor{
-
-              10%{
-                background-color: green;
-
-              }
-             
-             20%   {
-
-                background-color: yellow;
-              }
-
-              30%{
-
-                background-color: red;
-              }
-
-              40%{
-
-                background-color: blue;
-              }
-
-              50%{
-
-                background-color: orange;
-              }
-
-
+        40% {
+          trasform: translate(4px, 4px);
         }
+      }
 
-
-
-
-        @keyframes rotar {
-
-            from{transform: rotate(0deg);}to
-            {transform: rotate(360deg);}
-        
-        
-        
-
-
-
+      @keyframes deIzquierdaDerecha {
+        from {
+          margin-left: 0%;
         }
-
-
-
-    
-       
-    @keyframes separa {
-
-        from{letter-spacing: normal;}to{
-
-            letter-spacing: 1rem;
-
+        to {
+          margin-left: 100%;
         }
-        
-    }
-
-
-    @keyframes moverNumeros {
-
-         10%{
-
-            transform: translate(1px,1px);
-         }
-
-        20%{
-
-            transform: translate(2px,2px);
-        }
-
-        30%{
-
-            transform: translate(3px,3px);
-        }
-
-        40%{
-
-            trasform:translate(4px,4px);
-        }
-
-        
-    }
-
-    @keyframes deIzquierdaDerecha {
-
-  from{margin-left:0%}to{
-
-
-    margin-left: 100%;
-  }
-   
- }
-
-
-
-
-
-
-   
-   
+      }
     </style>
 
-
     <script>
-        function sorteo() {
-            const num = [];
-            const primitiva = [];
-            for (let i = 1; i <= 49; i++) num.push(i);
-            for (let i = 0; i < 7; i++) {
-
-                let indice = Math.floor(Math.random() * num.length);
-                let number = num[indice];
-                num.splice(indice, 1);
-                primitiva.push(number);
-                if (i == 5) primitiva.sort((a, b) => a - b);
-            }
-            return primitiva;
-        };
-        window.addEventListener('DOMContentLoaded', () => {
-            const nums = sorteo();
-            document.querySelector(".nums").querySelectorAll("div").forEach((v, k) => v.textContent = nums[k]);
-            document.getElementById('fecha').textContent += new Date().toLocaleDateString();
-
-        });
-
+      function sorteo() {
+        const num = [];
+        const primitiva = [];
+        for (let i = 1; i <= 49; i++) num.push(i);
+        for (let i = 0; i < 7; i++) {
+          let indice = Math.floor(Math.random() * num.length);
+          let number = num[indice];
+          num.splice(indice, 1);
+          primitiva.push(number);
+          if (i == 5) primitiva.sort((a, b) => a - b);
+        }
+        return primitiva;
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        const nums = sorteo();
+        document
+          .querySelector(".nums")
+          .querySelectorAll("div")
+          .forEach((v, k) => (v.textContent = nums[k]));
+        document.getElementById("fecha").textContent +=
+          new Date().toLocaleDateString();
+      });
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-
-        <h2>Primitiva</h2>
-
+      <h2>Primitiva</h2>
     </header>
     <main>
-        <div class="nums">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>C</div>
-        </div>
-        <div>
-            <div id="fecha">Fecha del sorteo: </div>
-        </div>
+      <div class="nums">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>C</div>
+      </div>
+      <div>
+        <div id="fecha">Fecha del sorteo:</div>
+      </div>
     </main>
     <footer>
-
-   <p>
-      &copy; Fernando Jesús Pérez Rodríguez
-   </p>
-
+      <p>&copy; Fernando Jesús Pérez Rodríguez</p>
     </footer>
-</body>
-
+  </body>
 </html>
